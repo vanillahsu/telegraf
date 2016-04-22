@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net"
 	"strings"
+	"time"
 
 	"github.com/influxdata/telegraf"
 	"github.com/influxdata/telegraf/plugins/inputs"
@@ -12,7 +13,7 @@ import (
 type NetIOStats struct {
 	ps PS
 
-	skipChecks bool
+	lastGather time.Time
 	Interfaces []string
 }
 
@@ -34,6 +35,8 @@ func (_ *NetIOStats) SampleConfig() string {
 
 func (s *NetIOStats) Gather(acc telegraf.Accumulator) error {
 	netio, err := s.ps.NetIO()
+	now := time.Now()
+	defer func() { s.lastGather = now }()
 	if err != nil {
 		return fmt.Errorf("error getting net io info: %s", err)
 	}
@@ -52,7 +55,7 @@ func (s *NetIOStats) Gather(acc telegraf.Accumulator) error {
 			if !found {
 				continue
 			}
-		} else if !s.skipChecks {
+		} else {
 			iface, err := net.InterfaceByName(io.Name)
 			if err != nil {
 				continue
