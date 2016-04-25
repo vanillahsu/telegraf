@@ -204,11 +204,12 @@ Currently implemented sources:
 * [sensors ](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/sensors) (only available if built from source)
 * [snmp](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/snmp)
 * [sql server](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/sqlserver) (microsoft)
+* [sysstat](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/sysstat)
+* [tail](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/tail)
 * [twemproxy](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/twemproxy)
 * [zfs](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/zfs)
 * [zookeeper](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/zookeeper)
 * [win_perf_counters ](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/win_perf_counters) (windows performance counters)
-* [sysstat](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/sysstat)
 * [system](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/system)
     * cpu
     * mem
